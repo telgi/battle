@@ -5,16 +5,14 @@ feature "Battle" do
     expect(page).to have_text("Battle!!!")
   end
 
-  scenario 'player_1 enters their name' do
+feature 'Enter names' do
+  scenario 'submitting names' do
     visit '/'
-    fill_in "player_1", with: "Terry"
-    expect(page).to have_field('player_1', with: 'Terry')
+    fill_in :player_1, with: 'Terry'
+    fill_in :player_2, with: 'LoolouMcgoo'
+    click_button 'Submit'
+    expect(page).to have_content 'Terry VS LoolouMcgoo'
   end
-
-  scenario 'player_2 enters their name' do
-    visit '/'
-    fill_in "player_2", with: "LoolouMcgoo"
-    expect(page).to have_field('player_2', with: 'LoolouMcgoo')
-  end
+end
 
 end
