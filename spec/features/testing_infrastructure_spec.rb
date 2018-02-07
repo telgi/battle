@@ -1,5 +1,3 @@
-# require "app"
-
 feature "Battle" do
 
   scenario 'user opens home page' do
@@ -7,12 +5,16 @@ feature "Battle" do
     expect(page).to have_text("Battle!!!")
   end
 
-  scenario 'users enter their names in a form' do
+  scenario 'player_1 enters their name' do
     visit '/'
     fill_in "player_1", with: "Terry"
+    expect(page).to have_field('player_1', with: 'Terry')
+  end
+
+  scenario 'player_2 enters their name' do
+    visit '/'
     fill_in "player_2", with: "LoolouMcgoo"
-    click_on "Submit"
-    expect(page).to have_text("Terry")
+    expect(page).to have_field('player_2', with: 'LoolouMcgoo')
   end
 
 end
