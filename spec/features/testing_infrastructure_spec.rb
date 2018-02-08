@@ -1,8 +1,8 @@
-feature "Battle" do
+feature "Testing infrastructure" do
 
-  scenario 'user opens home page' do
+  scenario 'User can run app and view content' do
     visit "/"
-    expect(page).to have_text("Battle!!!")
+    expect(page).to have_text("Battle Death Wars")
   end
 
 feature 'Enter names' do
