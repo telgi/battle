@@ -2,6 +2,8 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
 
+  MAX_HP = 100
+
   enable :sessions
 
   get '/' do
