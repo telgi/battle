@@ -4,7 +4,6 @@ require './lib/player'
 class Battle < Sinatra::Base
 
   MAX_HP = 100
-  BASIC_ATTACK = 10
 
   # enable :sessions
 
