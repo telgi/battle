@@ -20,5 +20,13 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
+  post '/play' do
+    redirect '/player_1_attacks_player_2'
+  end
+
+  get '/player_1_attacks_player_2' do
+    erb(:attacks_player2)
+  end
+
   run! if app_file == $0
 end
