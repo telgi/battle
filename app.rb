@@ -25,7 +25,7 @@ class Battle < Sinatra::Base
   end
 
   get '/player_1_attacks_player_2' do
-    erb(:attacks_player2)
+    erb(:player_1_attacks_player_2)
   end
 
   run! if app_file == $0
