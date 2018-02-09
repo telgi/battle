@@ -3,8 +3,13 @@ require 'game'
 describe Game do
 
   subject(:game) { described_class.new(player_1, player_2) }
-  let(:player_2) { double 'player 2' }
   let(:player_1) { double 'player 1' }
+  let(:player_2) { double 'player 2' }
+
+  let(:attack_player_2) do
+    expect(game.player_2).to receive(:receive_damage)
+    game.attack(game.player_2)
+  end
 
   describe '#initialize' do
     it 'creates player one' do
@@ -18,13 +23,11 @@ describe Game do
 
   describe "#attack" do
     it 'damages the player' do
-      expect(game.player_2).to receive(:receive_damage)
-      game.attack(game.player_2)
+      attack_player_2
     end
 
     it 'switches whos turn it is' do
-      expect(game.player_2).to receive(:receive_damage)
-      game.attack(game.player_2)
+      attack_player_2
       expect(game.turn).to eq game.player_2
     end
   end
