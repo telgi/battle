@@ -1,7 +1,17 @@
-<h1><%= @player_1.name %> VS <%= @player_2.name %></h1>
+<h1><%= @game.player_1.name %> VS <%= @game.player_2.name %></h1>
 
-<h2><%= @player_2.name %> : <%= @player_2.hp %> HP </h2>
+<h2><%= @game.player_1.name %> : <%= @game.player_1.hp %> HP </h2>
+<h2><%= @game.player_2.name %> : <%= @game.player_2.hp %> HP </h2>
 
-<form action="/player_1_attacks_player_2" method="get">
+<% if @game.turn == @game.player_1 %>
+<form action="/attack">
   <input type="submit" value="Attack Player 2">
 </form>
+
+<% else %>
+
+<form action="/attack">
+  <input type="submit" value="Attack Player 1">
+</form>
+
+<% end %>

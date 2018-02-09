@@ -6,8 +6,6 @@ class Battle < Sinatra::Base
 
   MAX_HP = 100
 
-  # enable :sessions
-
   get '/' do
     erb(:index)
   end
@@ -18,16 +16,14 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1 = $game.player_1
-    @player_2 = $game.player_2
+    @game = $game
     erb(:play)
   end
 
-  get '/player_1_attacks_player_2' do
-    @player_1 = $game.player_1
-    @player_2 = $game.player_2
-    $game.attack(@player_2)
-    erb(:player_1_attacks_player_2)
+  get '/attack' do
+    @game = $game
+    @game.attack(@game.not_turn)
+    erb(:attack)
   end
 
   run! if app_file == $0
