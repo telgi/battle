@@ -12,7 +12,7 @@ class Player
   end
 
   def receive_damage
-    @hp -= BASIC_ATTACK
+    @hp -= rand(1..20)
   end
 
 end

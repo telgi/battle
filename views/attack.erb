@@ -7,17 +7,17 @@
 
   <h1><%= @game.player_1.name %> is hurt badly</h1>
   <h2><%= @game.player_1.name %> : <%= @game.player_1.hp %> HP</h2>
-  
+
 <% end %>
 
-<% if @game.player_1.hp == 0 %>
+<% if @game.player_1.hp <= 0 %>
 
   <h1><%= @game.player_1.name %> loses because they are a loser</h1>
   <form action="/">
     <input type="submit" value="New Game?">
   </form>
 
-<% elsif @game.player_2.hp == 0 %>
+<% elsif @game.player_2.hp <= 0 %>
 
   <h1><%= @game.player_2.name %> loses because they are a loser</h1>
   <form action="/">
