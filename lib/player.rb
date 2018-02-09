@@ -11,8 +11,13 @@ class Player
     @hp = hp
   end
 
-  def receive_damage
-    @hp -= rand(1..20)
+  def receive_damage(damage_multiplier = 1)
+    @hp -= (rand(0..20) * damage_multiplier)
+  end
+
+  def double_damage?
+    random_hit = rand(1..3)
+    random_hit == 2
   end
 
 end

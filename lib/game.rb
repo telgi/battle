@@ -1,6 +1,6 @@
 class Game
 
-  attr_reader :player_1, :player_2, :turn, :not_turn
+  attr_reader :player_1, :player_2, :turn, :not_turn, :double_damage
 
   def initialize(player_1, player_2)
     @player_1 = player_1
@@ -18,7 +18,14 @@ class Game
   end
 
   def attack(player)
-    player.receive_damage
+    if player.double_damage?
+      player.receive_damage(5)
+      @double_damage = true
+      puts "Critical Hit!! Take some!!"
+    else
+      player.receive_damage
+      @double_damage = false
+    end
     @turn, @not_turn = @not_turn, @turn
   end
 

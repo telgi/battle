@@ -12,7 +12,7 @@ def p1_attacks
 end
 
 def attack_cycle
-  srand(3)
+  srand(4)
   click_button("Attack Player 2")
   click_button("Next turn")
   click_button("Attack Player 1")

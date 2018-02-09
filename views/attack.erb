@@ -1,14 +1,11 @@
-<% if @game.turn == @game.player_2 %>
+<% if @game.double_damage == true %>
 
-  <h1><%= @game.player_2.name %> is hurt badly</h1>
-  <h2><%= @game.player_2.name %> : <%= @game.player_2.hp %> HP</h2>
-
-<% else %>
-
-  <h1><%= @game.player_1.name %> is hurt badly</h1>
-  <h2><%= @game.player_1.name %> : <%= @game.player_1.hp %> HP</h2>
+  <h1>CRITICAL HIT!! GET SOME!!</h1>
 
 <% end %>
+
+  <h1><%= @game.turn.name %> is hurt badly</h1>
+  <h2><%= @game.turn.name %> : <%= @game.turn.hp %> HP</h2>
 
 <% if @game.player_1.hp <= 0 %>
 

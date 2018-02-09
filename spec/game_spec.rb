@@ -7,6 +7,7 @@ describe Game do
   let(:player_2) { double 'player 2' }
 
   let(:attack_player_2) do
+    allow(game.player_2).to receive(:double_damage?)
     expect(game.player_2).to receive(:receive_damage)
     game.attack(game.player_2)
   end
@@ -32,5 +33,10 @@ describe Game do
     end
   end
 
+  # describe 'critical_hit' do
+  #   it 'has a 1 in 3 chance of a crit hit when player is under 10hp' do
+  #
+  #   end
+  # end
 
 end
