@@ -11,7 +11,7 @@ describe Player do
     end
   end
 
-  describe "#hitpoints" do
+  describe "#hit_points" do
     it 'returns the hitpoints' do
       expect(player.hp).to eq described_class::DEFAULT_HP
     end
